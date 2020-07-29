@@ -1,0 +1,25 @@
+{
+  "name": "jnkns_k8s_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldvy/jnkns_k8_js.git"
+  },
+  "author": "LDVY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldvy/jnkns_k8_js/issues"
+  },
+  "homepage": "https://github.com/ldvy/jnkns_k8_js#readme"
+}
