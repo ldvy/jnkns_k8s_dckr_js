@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             when {
-                branch 'debug'
+                branch 'master'
             }
             steps {
                 script {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             when {
-                branch 'debug'
+                branch 'master'
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker_hub_login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
@@ -42,7 +42,7 @@ pipeline {
         }
         stage('DeployToProduction') {
             when {
-                branch 'debug'
+                branch 'master'
             }
             steps {
                 input 'Deploy to Production?'
