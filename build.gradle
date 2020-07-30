@@ -6,17 +6,18 @@ node {
 	download = true
 }
 
-task build
+task build 
 
 task zipArtifacts (type: Zip) {
+	
 	from ('.') {
 		include "*"
 		include "static/**"
 	}
-	destinationDir(file("dist"))
+	destinationDirectory = file("dist/")
+	archiveBaseName = "LDVY_ws"
 }
 
-
 build.dependsOn zipArtifacts
-zipArtifacts.dependsOn npm_run_build
-npm_run_build.dependsOn npmInstall
+zipArtifacts.dependsOn npm_test
+npm_test.dependsOn npmInstall
