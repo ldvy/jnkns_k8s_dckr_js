@@ -9,8 +9,8 @@ spec:
     app: ldvy-ws
   ports:
   - protocol: TCP
-    port: 80
-    nodePort: 30001
+    port: 8080
+    nodePort: 8080
 
 ---
 
@@ -34,4 +34,4 @@ spec:
       - name: ldvy-ws
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
-        - containerPort: 80
+        - containerPort: 8080
