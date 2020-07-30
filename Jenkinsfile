@@ -12,9 +12,6 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            when {
-                branch 'master'
-            }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)
@@ -25,9 +22,6 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker_hub_login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'docker login -u $USERNAME -p $PASSWORD'
@@ -41,9 +35,6 @@ pipeline {
             }
         }
         stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
