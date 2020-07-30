@@ -1,0 +1,22 @@
+plugins {
+	id "com.github.node-gradle.node" version "2.2.4"
+}
+
+node {
+	download = true
+}
+
+task build
+
+task zipArtifacts (type: Zip) {
+	from ('.') {
+		include "*"
+		include "static/**"
+	}
+	destinationDir(file("dist"))
+}
+
+
+build.dependsOn zipArtifacts
+zipArtifacts.dependsOn npm_run_build
+npm_run_build.dependsOn npmInstall
