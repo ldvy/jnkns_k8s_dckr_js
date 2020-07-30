@@ -16,7 +16,7 @@ pipeline {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
-                        sh 'Container successfully deployed!'
+                        sh 'echo "Container successfully deployed!"'
                     }
                 }
             }
