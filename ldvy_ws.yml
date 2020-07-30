@@ -10,7 +10,8 @@ spec:
   ports:
   - protocol: TCP
     port: 8080
-    nodePort: 8080
+    targetPort: 80
+    nodePort: 30036
 
 ---
 
@@ -34,4 +35,4 @@ spec:
       - name: ldvy-ws
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
-        - containerPort: 8080
+        - containerPort: 80
