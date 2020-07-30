@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ldvy_ws_service
+  name: ldvy-ws-service
 spec:
   type: NodePort
   selector:
-    app: ldvy_ws
+    app: ldvy-ws
   ports:
   - protocol: TCP
     port: 80
@@ -17,21 +17,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ldvy_ws_deployment
+  name: ldvy-ws-deployment
   labels:
-    app: ldvy_ws
+    app: ldvy-ws
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ldvy_ws
+      app: ldvy-ws
   template:
     metadata:
       labels:
-        app: ldvy_ws
+        app: ldvy-ws
     spec:
       containers:
-      - name: ldvy_ws
+      - name: ldvy-ws
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
         - containerPort: 80
