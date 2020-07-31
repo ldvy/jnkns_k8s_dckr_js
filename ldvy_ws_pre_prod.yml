@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ldvy-ws-service
+  name: ldvy-ws-service-pre-prod
 spec:
   type: NodePort
   selector:
@@ -17,7 +17,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ldvy-ws-deployment
+  name: ldvy-ws-deployment-pre-prod
   labels:
     app: ldvy-ws
 spec:
@@ -30,8 +30,11 @@ spec:
       labels:
         app: ldvy-ws
     spec:
+      nodeSelector:
+        type: pre-prod
       containers:
       - name: ldvy-ws
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
         - containerPort: 80
+

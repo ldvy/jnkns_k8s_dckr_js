@@ -34,13 +34,22 @@ pipeline {
                 }
             }
         }
+        stage('DeployToPre-Prod') {
+            steps {
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'ldvy_ws_pre_prod.yml',
+                    enableConfigSubstitution: true
+                )
+            }
+        }
         stage('DeployToProduction') {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
-                    configs: 'ldvy_ws.yml',
+                    configs: 'ldvy_ws_production.yml',
                     enableConfigSubstitution: true
                 )
             }
