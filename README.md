@@ -20,3 +20,5 @@ The following Jenkins credentials are required:<br>
 * **Docker Hub credentials** <br>
   These are used to push docker image and pass it later to kube cluster for deployment. <br>
   Default ID should be set to `docker_hub_login` but may be changed in the Jenkinsfile.
+  
+  sdfgsdfgg
